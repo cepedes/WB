@@ -223,11 +223,11 @@ def processa_arquivos_csv(arquivos_csv, inicio="",fim=""):
             'Per. Sem Chuva':[per_semchuva],
             'Per. Com Chuva':[per_comchuva],
             'Per. Dados Validos':[per_dados_validos],
-            'Per. Sem Dados:':[per_semdados],
+            'Per. Sem Dados':[per_semdados],
             'Soma': [soma_da_chuva],
-            'Média': [media_chuva],
+            'Media': [media_chuva],
             'Maximo Chuva':[max_chuva],
-            'Desvio Padrão':[desvpad_chuva],
+            'Desvio Padrao':[desvpad_chuva],
             'Variancia':[var_chuva],      
             'P05':[percentis[0.05]],
             'P10':[percentis[0.10]],
@@ -262,22 +262,22 @@ def processa_arquivos_csv(arquivos_csv, inicio="",fim=""):
 #
 
 
-pasta_csv = "./TELEMETRICAS/"
+pasta_csv = "./INMET_TELEMETRICAS/"
 TIPO_ESTACAO=1   ##  0 = CONVENCIONAL, 1=TELEMETRICA 
 # Obtém a lista de arquivos CSV na pasta
 arquivos_csv = glob.glob(pasta_csv + "*.csv")
 relatorios_total = pd.DataFrame()
 relatorios_total2 = pd.DataFrame()
 relatorios_total,inicio_hist,final_hist =processa_arquivos_csv(arquivos_csv)
-relatorios_total2,inicio_hist2,final_hist2  =processa_arquivos_csv(arquivos_csv,'1981-01-01','2010-01-01')
+relatorios_total2,inicio_hist2,final_hist2  =processa_arquivos_csv(arquivos_csv,'1991-01-01','2020-12-31')
 cria_saida_excel(relatorios_total,relatorios_total2,inicio_hist,final_hist,inicio_hist2,final_hist2)
 
-pasta_csv = "./INMET_CONVENCIONAIS_1900A2022/"
+pasta_csv = "./INMET_CONVENCIONAIS/"
 TIPO_ESTACAO=0   ##  0 = CONVENCIONAL, 1=TELEMETRICA 
 # Obtém a lista de arquivos CSV na pasta
 arquivos_csv = glob.glob(pasta_csv + "*.csv")
 relatorios_total,inicio_hist,final_hist =processa_arquivos_csv(arquivos_csv)
-relatorios_total2,inicio_hist2,final_hist2  =processa_arquivos_csv(arquivos_csv,'1981-01-01','2010-01-01')
+relatorios_total2,inicio_hist2,final_hist2  =processa_arquivos_csv(arquivos_csv,'1991-01-01','2020-12-31')
 cria_saida_excel(relatorios_total,relatorios_total2,inicio_hist,final_hist,inicio_hist2,final_hist2)
 
 
